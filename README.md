@@ -1,13 +1,14 @@
 # Webcomponents-update-reminder
-remind your user to update your components just by adding one line
+Remind your user to update your components just by adding one line
 
 ## Get start
 To use this element in your components:
 ```
+<!-- import this element first just like you do to other web components -->
 <!-- you can add async tag to this because it won't effect the remder of the page -->
 <link rel="import" href="../webcomponents-update-reminder/webcomponents-update-reminder.html" async>
 
-<!-- just adding this inside your web component -->
+<!-- adding this inside your web component -->
 <webcomponents-update-reminder
     src="YOUR ELEMENT'S GITHUB REPO">
 </webcomponents-update-reminder>

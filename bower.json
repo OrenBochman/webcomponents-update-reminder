@@ -5,7 +5,7 @@
   "authors": ["mark.huang1212@gmail.com"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/markhuang/webcomponents-update-reminder.git"
+    "url": "git://github.com/markhuang1212/webcomponents-update-reminder.git"
   },
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",

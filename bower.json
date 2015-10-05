@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/markhuang1212/webcomponents-update-reminder.git"
   },
+  "main":"webcomponents-update-reminder.html",
+  "license":"MIT",
+  "ignore":[],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",

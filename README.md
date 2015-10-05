@@ -1,0 +1,19 @@
+# Webcomponents-update-reminder
+remind your user to update your components just by adding one line
+
+## Get start
+To use this element in your components:
+```
+<!-- you can add async tag to this because it won't effect the remder of the page -->
+<link rel="import" href="../webcomponents-update-reminder/webcomponents-update-reminder.html" async>
+
+<!-- just adding this inside your web component -->
+<webcomponents-update-reminder
+    src="YOUR ELEMENT'S GITHUB REPO">
+</webcomponents-update-reminder>
+```
+That's all! By default, we will read the bower.json fire from element's master branch to detect if you have a new version, only minor and major version update will remind user to update. Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
+
+Of course, you can config all of these above yourself by seeing the API Docs below.
+
+## API docs

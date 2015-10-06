@@ -24,4 +24,4 @@ You need to mention that the `version` tag in your `bower.json` should be look l
 
 ## Contributing
 
-Webcomponents-update-reminder is a new project . Your bug reports, PRs for improvements, docs and anything you think would improve this element are welcomed.
+Webcomponents-update-reminder is a new project. Your bug reports, PRs for improvements, docs and anything you think would improve this element are welcomed.

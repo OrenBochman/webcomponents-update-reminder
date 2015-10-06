@@ -25,7 +25,7 @@ Remind your user to update your components just by adding one line
         /**
          * The github repo of your element, for example: "PolymerElements/paper-toolbar"
          */
-        src: {
+        repo: {
           type: String,
         },
 
@@ -36,7 +36,7 @@ Remind your user to update your components just by adding one line
 
         _latestBowerJsonURL: {
           type: String,
-          computed: '_computeLatestBowerJsonURL(src)'
+          computed: '_computeLatestBowerJsonURL(repo)'
         },
 
         _currentVersion: {
@@ -54,8 +54,8 @@ Remind your user to update your components just by adding one line
         'response': '_versionDetect'
       },
 
-      _computeLatestBowerJsonURL: function(src) {
-        var latestBowerJsonURL = "https://raw.githubusercontent.com/" + src + "/master/bower.json";
+      _computeLatestBowerJsonURL: function(repo) {
+        var latestBowerJsonURL = "https://raw.githubusercontent.com/" + repo + "/master/bower.json";
         return latestBowerJsonURL;
       },
 
@@ -82,9 +82,9 @@ Remind your user to update your components just by adding one line
       _versionDetect: function() {
         if (this._currentVersion && this._latestVersion) {
           var updateRemind = function() {
-            var componentName = this.src.split('/')[1];
+            var componentName = this.repo.split('/')[1];
             componentName = "\"" + componentName + "\"";
-            var releaseURL = "https://github.com/" + this.src + "/releases";
+            var releaseURL = "https://github.com/" + this.repo + "/releases";
             console.info(componentName + " hava a new version " + this._latestVersion.name + " available! " + releaseURL + " for more infomation");
           }.bind(this);
 

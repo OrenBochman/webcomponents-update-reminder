@@ -55,7 +55,7 @@ Remind your user to update your components just by adding one line
             majorVersion: currentVersion[0],
             minorVerison: currentVersion[1],
             patchVersion: currentVersion[2]
-          }
+          };
           // compute latest version
           var latestVersion = this.latestBowerJson.version.split('.');
           latestVersion = {
@@ -63,23 +63,23 @@ Remind your user to update your components just by adding one line
             majorVersion: latestVersion[0],
             minorVerison: latestVersion[1],
             patchVersion: latestVersion[2]
-          }
+          };
           // detect if version changes
           var versionDetect = function() {
-            if (currentVersion.minorVerison != latestVersion.minorVerison) {
+            if ((currentVersion.minorVerison != latestVersion.minorVerison) || (currentVersion.majorVersion != latestVersion.majorVersion)) {
               return true;
             } else {
               return false;
             }
           }.bind(this);
-          // what to do when version changes
+          // what to do when update is available
           var updateRemind = function() {
             var componentName = this.repo.split('/')[1];
             componentName = "\"" + componentName + "\"";
             var releaseURL = "https://github.com/" + this.repo + "/releases";
             console.info(componentName + " hava a new version " + latestVersion.version + " available! " + releaseURL + " for more infomation");
           }.bind(this);
-
+          // run updateRemind() when update is available
           if (versionDetect()) {
             updateRemind();
           }

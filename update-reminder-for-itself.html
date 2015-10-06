@@ -18,8 +18,41 @@ element for test before using it in webcomponents-update-reminder.
       is: 'update-reminder-for-itself',
       _versionDetect: function() {
         // run this function when both bower.json from local and release note from Github are recieved
-        if(this.currentBowerJson && this.latestReleaseJson){
-          // console.log("both json file get");
+        if (this.currentBowerJson && this.latestReleaseJson) {
+          // compute current version
+          var currentVersion = this.currentBowerJson.version.split('.');
+          currentVersion = {
+            version: this.currentBowerJson.version,
+            majorVersion: currentVersion[0],
+            minorVerison: currentVersion[1],
+            patchVersion: currentVersion[2]
+          };
+          // compute latest version
+          var latestVersion = this.latestReleaseJson.tag_name.replace("v", "").split('.');
+          latestVersion = {
+            version: this.latestReleaseJson.tag_name.replace("v", ""),
+            majorVersion: latestVersion[0],
+            minorVerison: latestVersion[1],
+            patchVersion: latestVersion[2]
+          };
+          // detect if version changes
+          var versionDetect = function() {
+            if ((currentVersion.minorVerison != latestVersion.minorVerison) || (currentVersion.majorVersion != latestVersion.majorVersion)) {
+              return true;
+            } else {
+              return false;
+            }
+          }.bind(this);
+          // what to do when update is available
+          var updateRemind = function() {
+            var componentName = "\"webcomponents-update-reminder\""
+            var releaseURL = "https://github.com/markhuang1212/webcomponents-update-reminder/releases";
+            console.info(componentName + " hava a new version " + latestVersion.version + " available! " + releaseURL + " for more infomation");
+          }.bind(this);
+          // run updateRemind() when update is available
+          if (versionDetect()) {
+            updateRemind();
+          }
         }
       }
     });

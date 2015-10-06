@@ -4,7 +4,7 @@ Remind your user to update your components just by adding one line
 ## Get start
 To use this element in your components:
 ```
-<!-- import this element first just like you do to other web components -->
+<!-- import this element just like you do to other web components -->
 <!-- you can add async tag to this because it won't effect the remder of the page -->
 <link rel="import" href="../webcomponents-update-reminder/webcomponents-update-reminder.html" async>
 
@@ -13,8 +13,11 @@ To use this element in your components:
     src="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
 </webcomponents-update-reminder>
 ```
-That's all! By default, we will read the "version" in bower.json file from element's master branch to detect if there is a new version, only minor and major version update will remind user to update. Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
+That's all! When your component have a new version, the user will recieve a info like this:
 
-Of course, you can config all of these above yourself by seeing the API Docs below.
+![a info in console](https://raw.githubusercontent.com/markhuang1212/webcomponents-update-reminder/master/info.jpg)
 
-## API docs
+
+By default, we will read the "version" in bower.json file from element's master branch to detect if there is a new version, only minor and major version update will remind user to update (unless your element's major version is 0). Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
+
+You need to mention that the `version` tag in your `bower.json` should be look like `X.Y.Z` and fit within [semantic versioning](http://semver.org/).

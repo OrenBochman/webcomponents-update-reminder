@@ -2,7 +2,7 @@
 Remind your user to update your components just by adding one line
 
 ## Notice
-This element is still building, don't use it in production!
+This element is still building, please don't use it in production!
 
 ## Get start
 To use this element in your components:

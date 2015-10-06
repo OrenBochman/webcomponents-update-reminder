@@ -1,9 +1,6 @@
 # Webcomponents-update-reminder
 Remind your user to update your components just by adding one line
 
-## Notice
-This element is still building, please don't use it in production!
-
 ## Get start
 To use this element in your components:
 ```
@@ -20,11 +17,9 @@ That's all! When your component have a new version, the user will recieve a info
 
 ![a info in console](https://raw.githubusercontent.com/markhuang1212/webcomponents-update-reminder/master/info.JPG)
 
+The element will read your repo's `release tag` and compare it with the local `bower.json` to detect if there is a new version, **only minor and major version update will remind user to update (unless your element's major version is 0)**. Your user will recieve a message in console when developing on `localhost` or `127.0.0.1`.
 
-By default, we will read the "version" in `bower.json` file from element's master branch to and compare it with the local `bower.json` detect if there is a new version, only minor and major version update will remind user to update (unless your element's major version is 0). Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
+You need to mention that the `version` tag in your `bower.json` should be look like `X.Y.Z`,  the `release tag` in your github repo should be look like `vX.Y.X` or `X.Y.Z` and fit within [semantic versioning](http://semver.org/).
 
-You need to mention that the `version` tag in your `bower.json` should be look like `X.Y.Z` and fit within [semantic versioning](http://semver.org/).
-
-## Contributing
-
-Webcomponents-update-reminder is a new project. Your bug reports, PRs for improvements, docs and anything you think would improve this element are welcomed.
+## Let's build together!
+This element is still building. If you're interested in it, you can help building it together!

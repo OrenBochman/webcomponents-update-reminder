@@ -15,36 +15,90 @@ Remind your user to update your components just by adding one line
       }
     </style>
     <iron-ajax auto url="{{_latestBowerJsonURL}}" handle-as="json" last-response="{{latestBowerJson}}"></iron-ajax>
-    <iron-ajax auto url="{{_currentBowerJsonURL}}" handle-as="json"></iron-ajax>
+    <iron-ajax auto url="{{_currentBowerJsonURL}}" handle-as="json" last-response="{{currentBowerJson}}"></iron-ajax>
   </template>
   <script>
     Polymer({
       is: 'webcomponents-update-reminder',
       properties: {
+
         /**
          * The github repo of your element, for example: "PolymerElements/paper-toolbar"
          */
         src: {
           type: String,
         },
-        _currentBowerJsonURL: {
-          type: String
+
+        /**
+         * By default, user will be remind when Minor version updates,
+         * you can change it to "majorVersion" or "patchVersion"
+         * (this feature is not available yet)
+         */
+        remindWhenUpdate: {
+          type: String,
+          value: "minorVerison"
         },
+
+        _currentBowerJsonURL: {
+          type: String,
+          value: 'bower.json'
+        },
+
         _latestBowerJsonURL: {
           type: String,
           computed: '_computeLatestBowerJsonURL(src)'
+        },
+
+        _currentVersion: {
+          type: Object,
+          computed: '_computeCurrentVersion(currentBowerJson)'
+        },
+
+        _latestVersion: {
+          type: Object,
+          computed: '_computeLatestVersion(latestBowerJson)'
         }
       },
+
+      listeners: {
+        'response': '_versionDetect'
+      },
+
       _computeLatestBowerJsonURL: function(src) {
         var latestBowerJsonURL = "https://raw.githubusercontent.com/" + src + "/master/bower.json"
         return latestBowerJsonURL;
       },
-      _latestVersionDetection: function(){
-        console.log(this.latestBowerJson.version)
-        return this.latest
-      },
-      _currentVersionDetection: function(){
 
+      _computeLatestVersion: function() {
+        var latestVersion = this.latestBowerJson.version.split(".");
+        return {
+          majorVersion: latestVersion[0],
+          minorVerison: latestVersion[1],
+          patchVersion: latestVersion[2],
+          name: this.latestBowerJson.version
+        }
+      },
+
+      _computeCurrentVersion: function() {
+        var currentVersion = this.currentBowerJson.version.split(".");
+        return {
+          majorVersion: currentVersion[0],
+          minorVerison: currentVersion[1],
+          patchVersion: currentVersion[2],
+          name: this.currentBowerJson.version
+        }
+      },
+
+      _versionDetect: function() {
+        if (this._currentVersion && this._latestVersion) {
+          var updateRemind = function(){
+
+          }
+          if (this._currentVersion.minorVerison != this._latestVersion.minorVerison) {
+            var componentName = this.src.split('/')[1];
+            console.log(componentName + " hava a new version " + this._latestVersion.name + " available!");
+          }
+        }
       }
 
 

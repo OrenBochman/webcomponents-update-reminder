@@ -10,7 +10,7 @@ To use this element in your components:
 
 <!-- adding this inside your web component -->
 <webcomponents-update-reminder
-    src="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
+    repo="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
 </webcomponents-update-reminder>
 ```
 That's all! When your component have a new version, the user will recieve a info like this:

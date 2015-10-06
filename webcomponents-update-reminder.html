@@ -14,8 +14,8 @@ Remind your user to update your components just by adding one line
         display: none;
       }
     </style>
-    <iron-ajax auto url="{{_latestBowerJsonURL}}" handle-as="json" last-response="{{latestBowerJson}}"></iron-ajax>
-    <iron-ajax auto url="{{_currentBowerJsonURL}}" handle-as="json" last-response="{{currentBowerJson}}"></iron-ajax>
+    <iron-ajax auto url="{{_latestBowerJsonURL}}" handle-as="json" last-response="{{latestBowerJson}}" on-response="_versionDetect"></iron-ajax>
+    <iron-ajax auto url="{{_currentBowerJsonURL}}" handle-as="json" last-response="{{currentBowerJson}}" on-response="_versionDetect"></iron-ajax>
   </template>
   <script>
     Polymer({
@@ -50,10 +50,6 @@ Remind your user to update your components just by adding one line
         }
       },
 
-      listeners: {
-        'response': '_versionDetect'
-      },
-
       _computeLatestBowerJsonURL: function(repo) {
         var latestBowerJsonURL = "https://raw.githubusercontent.com/" + repo + "/master/bower.json";
         return latestBowerJsonURL;
@@ -81,6 +77,7 @@ Remind your user to update your components just by adding one line
 
       _versionDetect: function() {
         if (this._currentVersion && this._latestVersion) {
+          console.log(window.location.href);
           var updateRemind = function() {
             var componentName = this.repo.split('/')[1];
             componentName = "\"" + componentName + "\"";
@@ -99,7 +96,6 @@ Remind your user to update your components just by adding one line
           if (versionDetect()) {
             updateRemind();
           }
-
         }
       }
     });

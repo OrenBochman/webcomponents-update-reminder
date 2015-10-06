@@ -15,7 +15,7 @@ To use this element in your components:
 ```
 That's all! When your component have a new version, the user will recieve a info like this:
 
-![a info in console](https://github.com/markhuang1212/webcomponents-update-reminder/raw/master/info.jpg)
+![a info in console](https://raw.githubusercontent.com/markhuang1212/webcomponents-update-reminder/master/info.JPG)
 
 
 By default, we will read the "version" in bower.json file from element's master branch to detect if there is a new version, only minor and major version update will remind user to update (unless your element's major version is 0). Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.

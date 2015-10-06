@@ -1,6 +1,7 @@
 {
   "name": "webcomponents-update-reminder",
   "version": "0.1.0",
+  "homepage": "https://github.com/markhuang1212/webcomponents-update-reminder",
   "description": "Remind your user to update your components just by adding one line",
   "authors": [ "mark.huang1212@gmail.com" ],
   "repository": {
@@ -10,7 +11,18 @@
   "main": "webcomponents-update-reminder.html",
   "license": "MIT",
   "ignore": [],
-  "dependencies": {
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "update",
+    "update reminder"
+  ],
+  "dependencies":{
+    "polymer": "Polymer/polymer#^1.1.0",
+    "iron-ajax": "PolymerElements/iron-ajax"
+  },
+  "devdependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",

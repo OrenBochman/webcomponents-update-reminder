@@ -3,9 +3,7 @@
 <link rel="import" href="update-reminder-for-itself.html">
 
 <!--
-
 Remind your user to update your components just by adding one line
-
 -->
 
 <dom-module id="webcomponents-update-reminder">
@@ -48,7 +46,7 @@ Remind your user to update your components just by adding one line
       },
 
       _versionDetect: function() {
-        // run this function when both bower.json file are recieved
+        // run this function when both bower.json from local and Github are recieved
         if (this.latestBowerJson && this.currentBowerJson) {
           // compute current version
           var currentVersion = this.currentBowerJson.version.split('.');
@@ -81,7 +79,7 @@ Remind your user to update your components just by adding one line
             var releaseURL = "https://github.com/" + this.repo + "/releases";
             console.info(componentName + " hava a new version " + latestVersion.version + " available! " + releaseURL + " for more infomation");
           }.bind(this);
-          
+
           if (versionDetect()) {
             updateRemind();
           }

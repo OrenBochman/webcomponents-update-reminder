@@ -17,8 +17,9 @@ element for test before using it in webcomponents-update-reminder.
     Polymer({
       is: 'update-reminder-for-itself',
       _versionDetect: function() {
+        // run this function when both bower.json from local and release note from Github are recieved
         if(this.currentBowerJson && this.latestReleaseJson){
-          console.log("both json file get");
+          // console.log("both json file get");
         }
       }
     });

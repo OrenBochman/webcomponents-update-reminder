@@ -59,8 +59,8 @@ Remind your user to update your components just by adding one line
         return latestBowerJsonURL;
       },
 
-      _computeLatestVersion: function() {
-        var latestVersion = this.latestBowerJson.version.split(".");
+      _computeLatestVersion: function(latestBowerJson) {
+        var latestVersion = latestBowerJson.version.split(".");
         return {
           majorVersion: latestVersion[0],
           minorVerison: latestVersion[1],
@@ -69,8 +69,8 @@ Remind your user to update your components just by adding one line
         }
       },
 
-      _computeCurrentVersion: function() {
-        var currentVersion = this.currentBowerJson.version.split(".");
+      _computeCurrentVersion: function(currentBowerJson) {
+        var currentVersion = currentBowerJson.version.split(".");
         return {
           majorVersion: currentVersion[0],
           minorVerison: currentVersion[1],

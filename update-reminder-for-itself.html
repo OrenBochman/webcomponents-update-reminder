@@ -11,7 +11,7 @@ element for test before using it in webcomponents-update-reminder.
 <dom-module id="update-reminder-for-itself">
   <template>
     <iron-ajax auto url="bower.json" handle-as="json" last-response="{{currentBowerJson}}" on-response="_versionDetect"></iron-ajax>
-    <iron-ajax auto url="https://api.github.com/repos/polymerelements/paper-toolbar/releases/latest" handle-as="json" last-response="{{latestReleaseJson}}" on-response="_versionDetect"></iron-ajax>
+    <iron-ajax auto url="https://api.github.com/repos/markhuang1212/webcomponents-update-reminder/releases/latest" handle-as="json" last-response="{{latestReleaseJson}}" on-response="_versionDetect"></iron-ajax>
   </template>
   <script>
     Polymer({

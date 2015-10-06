@@ -1,0 +1,26 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+
+<!--
+It's a update reminder for webcomponents-update-reminder, for putting the element
+inside itself will cause problems, I can only build another element for
+webcomponents-update-reminder. Also, some new, unstable tech maybe use in this
+element for test before using it in webcomponents-update-reminder.
+-->
+<dom-module id="update-reminder-for-itself">
+  <template>
+    <iron-ajax auto url="bower.json" handle-as="json" last-response="{{currentBowerJson}}" on-response="_versionDetect"></iron-ajax>
+    <iron-ajax auto url="https://api.github.com/repos/polymerelements/paper-toolbar/releases/latest" handle-as="json" last-response="{{latestReleaseJson}}" on-response="_versionDetect"></iron-ajax>
+  </template>
+  <script>
+    Polymer({
+      is: 'update-reminder-for-itself',
+      _versionDetect: function() {
+        if(this.currentBowerJson && this.latestReleaseJson){
+          console.log("both json file get");
+        }
+      }
+    });
+  </script>
+</dom-module>

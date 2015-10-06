@@ -29,16 +29,6 @@ Remind your user to update your components just by adding one line
           type: String,
         },
 
-        /**
-         * By default, user will be remind when Minor version updates,
-         * you can change it to "majorVersion" or "patchVersion"
-         * (this feature is not available yet)
-         */
-        remindWhenUpdate: {
-          type: String,
-          value: "minorVerison"
-        },
-
         _currentBowerJsonURL: {
           type: String,
           value: 'bower.json'
@@ -112,8 +102,6 @@ Remind your user to update your components just by adding one line
 
         }
       }
-
-
     });
   </script>
 </dom-module>

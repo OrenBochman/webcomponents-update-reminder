@@ -1,21 +1,20 @@
 {
-  "name": "large-screen-only",
+  "name": "webcomponents-update-reminder",
   "version": "0.0.0",
   "description": "Remind your user to update your components just by adding one line",
-  "authors": ["mark.huang1212@gmail.com"],
+  "authors": [ "mark.huang1212@gmail.com" ],
   "repository": {
     "type": "git",
     "url": "git://github.com/markhuang1212/webcomponents-update-reminder.git"
   },
-  "main":"webcomponents-update-reminder.html",
-  "license":"MIT",
-  "ignore":[],
+  "main": "webcomponents-update-reminder.html",
+  "license": "MIT",
+  "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
-    "neon-elements": "PolymerElements/neon-elements#^1.0.0",
-    "webcomponents-update-reminder": "markhuang/webcomponents-update-reminder"
+    "neon-elements": "PolymerElements/neon-elements#^1.0.0"
   }
 }

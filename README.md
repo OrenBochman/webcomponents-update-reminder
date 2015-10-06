@@ -10,10 +10,10 @@ To use this element in your components:
 
 <!-- adding this inside your web component -->
 <webcomponents-update-reminder
-    src="YOUR ELEMENT'S GITHUB REPO">
+    src="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
 </webcomponents-update-reminder>
 ```
-That's all! By default, we will read the bower.json fire from element's master branch to detect if you have a new version, only minor and major version update will remind user to update. Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
+That's all! By default, we will read the "version" in bower.json fire from element's master branch to detect if you have a new version, only minor and major version update will remind user to update. Your user will recieve a message from console when developing on `localhost` or `127.0.0.1`.
 
 Of course, you can config all of these above yourself by seeing the API Docs below.
 

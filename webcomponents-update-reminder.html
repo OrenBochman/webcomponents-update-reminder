@@ -1,15 +1,53 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<!--
+
+Remind your user to update your components just by adding one line
+
+-->
+
 <dom-module id="webcomponents-update-reminder">
   <template>
     <style>
       :host {
-        display: block;
+        /*display: none;*/
       }
     </style>
-
+    <iron-ajax auto url="{{_latestBowerJsonURL}}" handle-as="json" last-response="{{latestBowerJson}}"></iron-ajax>
+    <iron-ajax auto url="{{_currentBowerJsonURL}}" handle-as="json"></iron-ajax>
   </template>
   <script>
     Polymer({
-      is: 'webcomponents-update-reminder'
+      is: 'webcomponents-update-reminder',
+      properties: {
+        /**
+         * The github repo of your element, for example: "PolymerElements/paper-toolbar"
+         */
+        src: {
+          type: String,
+        },
+        _currentBowerJsonURL: {
+          type: String
+        },
+        _latestBowerJsonURL: {
+          type: String,
+          computed: '_computeLatestBowerJsonURL(src)'
+        }
+      },
+      _computeLatestBowerJsonURL: function(src) {
+        var latestBowerJsonURL = "https://raw.githubusercontent.com/" + src + "/master/bower.json"
+        return latestBowerJsonURL;
+      },
+      _latestVersionDetection: function(){
+        console.log(this.latestBowerJson.version)
+        return this.latest
+      },
+      _currentVersionDetection: function(){
+
+      }
+
+
     });
   </script>
 </dom-module>

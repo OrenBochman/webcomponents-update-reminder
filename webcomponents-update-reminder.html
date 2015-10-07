@@ -31,6 +31,15 @@ like `X.Y.Z`. We recommend naming tags that fit within
   <template>
     <iron-ajax auto url="{{_latestBowerJsonUrl}}" handle-as="json" last-response="{{latestBowerJson}}" on-response="_versionDetect"></iron-ajax>
     <iron-ajax auto url="{{_currentBowerJsonUrl}}" handle-as="json" last-response="{{currentBowerJson}}" on-response="_versionDetect"></iron-ajax>
+    <!-- This feature will be added in the near future -->
+    <!-- <iron-ajax auto
+      url="https://www.googleapis.com/urlshortener/v1/url"
+      method="POST"
+      handle-as="json"
+      params='{"key": "AIzaSyAnJCekA1SOI_flF3_KRDA0RH9zhe4a3u8"}'
+      body='{"longUrl": "http://www.google.com/"}'
+      content-type="application/json">
+    </iron-ajax> -->
     <update-reminder-for-itself></update-reminder-for-itself>
   </template>
   <script>

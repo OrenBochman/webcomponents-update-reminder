@@ -16,7 +16,7 @@ The element will read the `version` in your repo master branch's `bower.json` an
 
 You need to mention that the `version` tag in your `bower.json` should be look like `X.Y.Z`. We recommend naming tags that fit within [semantic versioning](http://semver.org/).
 
-## [API Docs & Demo](http://open-elements.org/elements/webcomponents-update-reminder)
+## [API Docs](http://open-elements.org/elements/webcomponents-update-reminder)
 
 ## Let's build together!
 This element is still building. If you're interested in it, you can help building it together!

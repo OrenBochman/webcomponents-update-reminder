@@ -1,0 +1,139 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="update-reminder-for-itself.html">
+
+<!--
+Remind your user to update your components just by adding one line
+
+Example:
+```
+<webcomponents-update-reminder
+    repo="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
+</webcomponents-update-reminder>
+```
+That's all! When your component have a new version, the user will recieve a info
+like this:
+
+![a info in console](https://raw.githubusercontent.com/markhuang1212/webcomponents-update-reminder/master/info.JPG)
+
+The element will read the `version` in your repo master branch's `bower.json`
+and compare it with the local `bower.json` to detect if there is a new version,
+only minor and major version update will remind user to update
+(unless your element's major version is 0).
+
+You need to mention that the `version` tag in your `bower.json` should be look
+like `X.Y.Z`. We recommend naming tags that fit within
+[semantic versioning](http://semver.org/).
+
+-->
+
+<dom-module id="update-reminder-action">
+  <template>
+    <iron-ajax auto url="{{_latestBowerJsonUrl}}" handle-as="json" last-response="{{latestBowerJson}}" on-response="_versionDetect"></iron-ajax>
+    <iron-ajax auto url="{{_currentBowerJsonUrl}}" handle-as="json" last-response="{{currentBowerJson}}" on-response="_versionDetect"></iron-ajax>
+    <!-- This feature will be added in the near future -->
+    <!-- <iron-ajax auto
+      url="https://www.googleapis.com/urlshortener/v1/url"
+      method="POST"
+      handle-as="json"
+      params='{"key": "AIzaSyAnJCekA1SOI_flF3_KRDA0RH9zhe4a3u8"}'
+      body='{"longUrl": "http://www.google.com/"}'
+      content-type="application/json">
+    </iron-ajax> -->
+  </template>
+  <script>
+    Polymer({
+      is: 'update-reminder-action',
+      properties: {
+
+        /**
+         * The github repo of your element, for example: "PolymerElements/paper-toolbar"
+         */
+        repo: {
+          type: String,
+        },
+
+        _componentName: {
+          type: String,
+          computed: '_computeComponentName(repo)'
+        },
+
+        _currentBowerJsonUrl: {
+          type: String,
+          computed: '_computeCurrentBowerJsonUrl(_componentName)'
+        },
+
+        _latestBowerJsonUrl: {
+          type: String,
+          computed: '_computeLatestBowerJsonUrl(repo)'
+        }
+      },
+
+      _computeComponentName: function(repo) {
+        return componentName = repo.split('/')[1];
+      },
+
+      _computeCurrentBowerJsonUrl: function(componentName) {
+        var resolveUrl = "../" + componentName + "/bower.json";
+        resolveUrl = this.resolveUrl(resolveUrl);
+        return resolveUrl;
+      },
+
+      _computeLatestBowerJsonUrl: function(repo) {
+        var latestBowerJsonUrl = "https://raw.githubusercontent.com/" + repo + "/master/bower.json";
+        return latestBowerJsonUrl;
+      },
+
+      _versionDetect: function() {
+        // run this function when both bower.json from local and Github are recieved
+        if (this.latestBowerJson && this.currentBowerJson) {
+          // compute current version
+          var currentVersion = this.currentBowerJson.version.split('.');
+          currentVersion = {
+            version: this.currentBowerJson.version,
+            majorVersion: currentVersion[0],
+            minorVerison: currentVersion[1],
+            patchVersion: currentVersion[2]
+          };
+          // compute latest version
+          var latestVersion = this.latestBowerJson.version.split('.');
+          latestVersion = {
+            version: this.latestBowerJson.version,
+            majorVersion: latestVersion[0],
+            minorVerison: latestVersion[1],
+            patchVersion: latestVersion[2]
+          };
+          // detect if version changes
+          var versionDetect = function() {
+            if (currentVersion.majorVersion == '0') {
+              if ((currentVersion.minorVerison != latestVersion.minorVerison) ||
+                (currentVersion.majorVersion != latestVersion.majorVersion) ||
+                (currentVersion.patchVersion != latestVersion.patchVersion)) {
+                return true;
+              } else {
+                return false;
+              }
+            } else {
+              if ((currentVersion.minorVerison != latestVersion.minorVerison) ||
+                (currentVersion.majorVersion != latestVersion.majorVersion)) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+          }.bind(this);
+          // what to do when update is available
+          var updateRemind = function() {
+            var componentNameWithQuotation = "\"" + this._componentName + "\"";
+            var releaseUrl = "https://github.com/" + this.repo + "/releases";
+            console.info(componentNameWithQuotation + " hava a new version " + latestVersion.version + " available! " + releaseUrl + " for more infomation");
+          }.bind(this);
+          // run updateRemind() when update is available
+          if (versionDetect()) {
+            updateRemind();
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

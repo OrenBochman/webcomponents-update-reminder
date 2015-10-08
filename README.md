@@ -1,6 +1,16 @@
 # Webcomponents-update-reminder
 Remind your user to update your components just by adding one line
 
+## About this version
+
+This is the second major update of this element. In this release, I totally redesign the structure of the element. As @ told me the 0.2 version will cause a lot of ajax requests when visiting, the following improvement are made in the 0.3 version:
+
+The main function of this element will only be imported when developing on localhost or an IP address.
+
+By doing this, no Ajax request will be made in production, and the total network requests will under 2k, which can basically be ignored. As it won't import the main function, the performances will be much better than the earlier version. 
+
+Since it won't cause any performances problems in your element, why not use it in your element now?
+
 ## Get start
 To use this element in your components:
 ```

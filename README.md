@@ -7,7 +7,7 @@ This is the second major update of this element. In this release, I totally rede
 
 The main function of this element will only be imported when developing on localhost or an IP address.
 
-By doing this, no Ajax request will be made in production, and the total network requests will under 2k, which can basically be ignored. As it won't import the main function, the performances will be much better than the earlier version. 
+By doing this, no Ajax request will be made in production, and the total network requests will under 3k, which can basically be ignored. As it won't import the main function, the performances will be much better than the earlier version. 
 
 Since it won't cause any performances problems in your element, why not use it in your element now?
 

@@ -19,4 +19,4 @@ When the page is loaded from a web server running on `localhost`, the element wi
 You need to mention that the `version` tag in your `bower.json` should be look like `X.Y.Z`. We recommend naming tags that fit within [semantic versioning](http://semver.org/).
 
 ## API Docs
-http://http://open-elements.org/elements/webcomponents-update-reminder
+http://open-elements.org/elements/webcomponents-update-reminder

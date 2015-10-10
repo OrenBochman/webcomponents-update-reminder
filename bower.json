@@ -1,6 +1,6 @@
 {
   "name": "webcomponents-update-reminder",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/markhuang1212/webcomponents-update-reminder",
   "description": "Remind your user to update your components just by adding one line",
   "authors": [ "mark.huang1212@gmail.com" ],
@@ -23,7 +23,7 @@
     "iron-ajax": "PolymerElements/iron-ajax",
     "iron-component-page": "PolymerElements/iron-component-page"
   },
-  "devdependencies": {
+  "devDependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",

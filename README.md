@@ -7,7 +7,7 @@ Remind your user to update your components just by adding one line.
 To use this element in your components:
 ```
 <webcomponents-update-reminder
-    repo="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
+    repo="PolymerElements/paper-toolbar">
 </webcomponents-update-reminder>
 ```
 That's all! When your component have a new version, the user will recieve a info like this:

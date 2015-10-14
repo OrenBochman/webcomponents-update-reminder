@@ -10,7 +10,7 @@ Example:
 
 ```
 <webcomponents-update-reminder
-    repo="YOUR ELEMENT'S GITHUB REPO, FOR EXAMPLE: PolymerElements/paper-toolbar">
+    repo="PolymerElements/paper-toolbar">
 </webcomponents-update-reminder>
 ```
 That's all! When your component have a new version, the user will recieve a info
@@ -43,12 +43,14 @@ like `X.Y.Z`. We recommend naming tags that fit within
     Polymer({
       is: 'webcomponents-update-reminder',
       properties: {
+        /**
+         * The github repo of your element, for example: "PolymerElements/paper-toolbar"
+         */
         repo: String,
       },
       ready: function(){
         var isLocalhost = function() {
           var hostname = window.location.hostname;
-          // the following function is copied from "paltinum-http-redirect" element
           return !!(hostname === 'localhost' ||
                     hostname === '[::1]' ||
                     hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));

@@ -54,7 +54,7 @@ like `X.Y.Z`. We recommend naming tags that fit within
           return !!(hostname === 'localhost' ||
                     hostname === '[::1]' ||
                     hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
-        }
+        };
         if (isLocalhost()){
           this.importHref(this.resolveUrl('update-reminder-action.html'), function() {
             this.isLocalhost = true;

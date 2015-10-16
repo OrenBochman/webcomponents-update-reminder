@@ -12,10 +12,8 @@
   "license": "MIT",
   "ignore": [],
   "keywords": [
-    "web-component",
     "web-components",
     "polymer",
-    "update",
     "update reminder"
   ],
   "dependencies":{

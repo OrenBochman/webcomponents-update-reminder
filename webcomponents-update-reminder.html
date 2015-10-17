@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="update-reminder-action.html">
 
 <!--
 An element to remind developers if your element have an update.
@@ -58,9 +59,7 @@ like `X.Y.Z`. We recommend naming tags that fit within
                     hostname.match('c9.io'));
         };
         if (isLocalhost()){
-          this.importHref(this.resolveUrl('update-reminder-action.html'), function() {
-            this.isLocalhost = true;
-          }.bind(this));
+          this.isLocalhost = true;
         }
       }
     });

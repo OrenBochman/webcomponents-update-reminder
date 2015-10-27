@@ -49,8 +49,8 @@ like `X.Y.Z`. We recommend naming tags that fit within
          */
         repo: String,
       },
-      attached: function(){
-        var isLocalhost = function() {
+      attached: () => {
+        var isLocalhost = () => {
           var hostname = window.location.hostname;
           return !!(hostname === 'localhost' ||
                     hostname === '[::1]' ||

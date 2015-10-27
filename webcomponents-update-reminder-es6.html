@@ -41,6 +41,7 @@ like `X.Y.Z`. We recommend naming tags that fit within
     </template>
   </template>
   <script>
+    'use strict';
     Polymer({
       is: 'webcomponents-update-reminder',
       properties: {
@@ -49,7 +50,7 @@ like `X.Y.Z`. We recommend naming tags that fit within
          */
         repo: String,
       },
-      attached: () => {
+      attached: function() {
         var isLocalhost = () => {
           var hostname = window.location.hostname;
           return !!(hostname === 'localhost' ||

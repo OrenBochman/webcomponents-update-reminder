@@ -5,7 +5,7 @@ An element to remind developers if your element have an update.
 (this element won't cause any network request unless the page is loaded from a web server running on `localhost` or a Cloud IDE)
 
 ## Notice
-If you want to use a ES6 version of this element, please check `es6` branch, which is still under progress and will finish soon.
+You can try the new ES6 version of this element by importing `Webcomponents-update-reminder-es6.html`, which have a lot of new cool stuffs.
 
 ## Requirements
 

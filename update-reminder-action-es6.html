@@ -56,13 +56,13 @@ update.
       },
 
       _computeCurrentBowerJsonUrl: function(componentName) {
-        var resolveUrl = "../" + componentName + "/bower.json";
+        var resolveUrl = `../${componentName}/bower.json`;
         resolveUrl = this.resolveUrl(resolveUrl);
         return resolveUrl;
       },
 
       _computeLatestBowerJsonUrl: function(repo) {
-        var latestBowerJsonUrl = "https://raw.githubusercontent.com/" + repo + "/master/bower.json";
+        var latestBowerJsonUrl = `https://raw.githubusercontent.com/${repo}/master/bower.json`;
         return latestBowerJsonUrl;
       },
 
@@ -106,9 +106,7 @@ update.
           };
           // what to do when update is available
           var updateRemind = () => {
-            var componentNameWithQuotation = "\"" + this._componentName + "\"";
-            var releaseUrl = "https://github.com/" + this.repo + "/releases";
-            // console.info(componentNameWithQuotation + " hava a new version " + latestVersion.version + " available! " + releaseUrl + " for more infomation");
+            var releaseUrl = `https://github.com/${this.repo}/releases`;
             console.info(`
 "${this._componentName}" have a new version ${latestVersion.version} available!
 ${releaseUrl} for more information`);

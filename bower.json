@@ -1,6 +1,6 @@
 {
   "name": "webcomponents-update-reminder",
-  "version": "0.3.4",
+  "version": "0.3.6",
   "homepage": "https://github.com/markhuang1212/webcomponents-update-reminder",
   "description": "Remind your user to update your components just by adding one line",
   "authors": [ "mark.huang1212@gmail.com" ],

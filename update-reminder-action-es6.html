@@ -86,7 +86,7 @@ update.
             patchVersion: latestVersion[2]
           };
           // detect if version changes
-          var versionDetect = function() {
+          var versionDetect = () => {
             if (currentVersion.majorVersion == '0') {
               if ((currentVersion.minorVerison != latestVersion.minorVerison) ||
                 (currentVersion.majorVersion != latestVersion.majorVersion) ||
@@ -103,16 +103,16 @@ update.
                 return false;
               }
             }
-          }.bind(this);
+          };
           // what to do when update is available
-          var updateRemind = function() {
+          var updateRemind = () => {
             var componentNameWithQuotation = "\"" + this._componentName + "\"";
             var releaseUrl = "https://github.com/" + this.repo + "/releases";
             // console.info(componentNameWithQuotation + " hava a new version " + latestVersion.version + " available! " + releaseUrl + " for more infomation");
             console.info(`
               "${this._componentName}" have a new version ${latestVersion.version} available!
               ${releaseUrl} for more information`);
-          }.bind(this);
+          };
           // run updateRemind() when update is available
           if (versionDetect()) {
             updateRemind();
